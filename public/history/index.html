@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/history/history.js"></script>
+  <link rel="icon" href="../images/favicon.ico">
+  <title>Historial de pagos</title>
+</head>
+<body onload="getData()">
+  <table id="transactions">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Origen</th>
+        <th>Destino</th>
+        <th>Cantidad</th>
+        <th>Tipo</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+      <tr> 
+      </tr>
+    </tbody>
+  </table>
+
+
+  <button onclick="goBack()">Regresar</button>
+</body>
+</html>

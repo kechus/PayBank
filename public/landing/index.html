@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/landing/landing.js"></script>
+  <link rel="icon" href="../images/favicon.ico">
+  <title>Landing page</title>
+</head>
+<body onload='cargado()'>
+  <div>
+    <img src="../images/logo.png" alt="">
+  </div>
+
+  <div>
+    <p>Bienvenido: <span id="username"></span></p>
+    <p >Su saldo es de: <span id="saldo"></span> </p>
+    <p>Numero de tarjeta: <span id="card"></span></p>
+  </div>
+
+  <a href="../history/"><button> Historial</button></a>
+  <a href="../loan/ask.html"><button>Pedir prestamo</button></a>
+  <a href="../loan/pay.html"><button>Pagar prestamo</button></a>
+  <form action="/logout" method="POST"> <a href="/logout"> <button>Cerrar Sesion </button> </a> </form>
+  
+  
+</body>
+</html>

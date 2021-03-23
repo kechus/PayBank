@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../images/favicon.ico">
+  <script src="../js/login/login.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <title>Inicio</title>
+</head>
+<body>
+  <img src="../images/logo.png" alt="logo">
+  <div>
+      <input type="text" id='username' required>
+      <input type="password" id='password' required>
+      <button onclick="sendData()">Iniciar sesion</button>
+  </div>
+
+  <a href="register.html">No tienes cuenta?</a>
+
+  <p id="login-state"></p>
+
+</body>
+</html>

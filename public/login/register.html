@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <link rel="icon" href="../images/favicon.ico">
+  <script src="../js/login/register.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</head>
+<body onload="loaded()">
+  <div>
+    <p>
+      Registrate ahora y recibe una cuenta con 100$ MXN de regalo!
+    </p>
+  </div>
+  <div id='form'>
+    <input type="text" name="username" id="username">
+    <input type="password" name="password" id="password">
+    <input type="text" id="credit-card" disabled>
+    <input type="button" value="Registrarse!"  onclick="sendData()">
+  </div>
+  <p id="register-state"></p>
+</body>
+</html>
