@@ -6,21 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrarse</title>
   <link rel="icon" href="../images/favicon.ico">
+  <link rel="stylesheet" href="../styles/default.css">
+  <link rel="stylesheet" href="../styles/login.css">
   <script src="../js/login/register.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
 <body onload="loaded()">
-  <div>
-    <p>
-      Registrate ahora y recibe una cuenta con 100$ MXN de regalo!
-    </p>
+
+  <div class='row'>
+    <div class="col-12">
+      <div id='form'>
+        <input type="text" name="username" id="username" required>
+        <input type="password" name="password" id="password" required>
+        <input type="text" id="credit-card" disabled>
+        <button onclick="sendData()"> Registrarse! </button>
+      </div>
+    </div>
   </div>
-  <div id='form'>
-    <input type="text" name="username" id="username">
-    <input type="password" name="password" id="password">
-    <input type="text" id="credit-card" disabled>
-    <input type="button" value="Registrarse!"  onclick="sendData()">
+
+  <div class='row'>
+    <div class='col-12'>
+      <div class="form-footer">
+        <p>
+          Registrate ahora y recibe una cuenta con 200$ MXN de regalo!
+        </p>
+        
+        <p id="register-state"></p>
+      </div> 
+    </div>
   </div>
-  <p id="register-state"></p>
 </body>
 </html>

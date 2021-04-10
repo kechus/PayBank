@@ -5,21 +5,36 @@
   <meta http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../images/favicon.ico">
+  <link rel="stylesheet" href="../styles/default.css">
+   <link rel="stylesheet" href="../styles/login.css">
   <script src="../js/login/login.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   <title>Inicio</title>
 </head>
 <body>
-  <img src="../images/logo.png" alt="logo">
-  <div>
-      <input type="text" id='username' required>
-      <input type="password" id='password' required>
-      <button onclick="sendData()">Iniciar sesion</button>
+  <div class='row'>
+    <div class='col-12'>
+      <img src="../images/logo.png" alt="logo" id="logo">
+    </div>
   </div>
 
-  <a href="register.html">No tienes cuenta?</a>
+  <div class='row'>
+     <div class='col-12'>
+        <div class='form'>
+          <input type="text" id='username' placeholder="Nombre de usuario">
+          <input type="password" id='password' placeholder="Contraseña">
+          <button onclick="sendData()">Iniciar sesion</button>
+        </div>
+    </div>
+  </div>
 
-  <p id="login-state"></p>
-
+  <div class='row'>
+    <div class="col-12">
+      <div class='form-footer'>
+        <a href="register.html">No tienes cuenta?</a>
+        <p id="login-state"></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
