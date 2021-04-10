@@ -5,28 +5,48 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../js/history/history.js"></script>
+  <link rel="stylesheet" href="../styles/default.css">
+  <link rel="stylesheet" href="../styles/history.css">
   <link rel="icon" href="../images/favicon.ico">
   <title>Historial de pagos</title>
 </head>
 <body onload="getData()">
-  <table id="transactions">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Origen</th>
-        <th>Destino</th>
-        <th>Cantidad</th>
-        <th>Tipo</th>
-        <th>Fecha</th>
-      </tr>
-    </thead>
-    <tbody id="table-body">
-      <tr> 
-      </tr>
-    </tbody>
-  </table>
+  <div class='row'>
+    <div class="col-8">
+      <ul>
+        <li> <a href="../landing/"> Inicio </a> </li>
+        <li> <a href="../history/" class="active"> Historial </a> </li>
+        <li> <a href="../loan/ask.html"> Pedir prestamo </a> </li>
+        <li> <a href="../loan/pay.html"> Pagar prestamo </a> </li>
+        <li> <a href="/logout">Cerrar sesion</a> </li>
+      </ul>
+    </div>
 
+    <div class='col-4'>
+      <img src="../images/logo.png" id='logo-menu'>
+    </div>
+  </div>
 
-  <button onclick="goBack()">Regresar</button>
+  <div class='row'>
+    <div class='col-12'>
+      <table id="transactions">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Cantidad</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -5,14 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../js/loan/loan.js"></script>
+  <link rel="stylesheet" href="../styles/default.css">
+  <link rel="stylesheet" href="../styles/loan.css">
   <link rel="icon" href="../images/favicon.ico">
   <title>Prestamo</title>
 </head>
 <body>
-  <div>
-    <p>Pedir un prestamo al banco de mexico</p>
-    <input type="number" name="ammount" id="ammount" min="1" max="500">
-    <button id='pedir' onclick="pedir()">Pedir</button>
+  <div class='row'>
+    <div class="col-8">
+      <ul>
+        <li> <a href="../landing/"> Inicio </a> </li>
+        <li> <a href="../history/"> Historial </a> </li>
+        <li> <a href="../loan/ask.html" class="active"> Pedir prestamo </a> </li>
+        <li> <a href="../loan/pay.html"> Pagar prestamo </a> </li>
+        <li> <a href="/logout">Cerrar sesion</a> </li>
+      </ul>
+    </div>
+
+    <div class='col-4'>
+      <img src="../images/logo.png" id='logo-menu'>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-12'>
+      <p>Pedir un prestamo al banco de mexico</p>
+      <input type="number" name="ammount" id="ammount" min="1" max="500" placeholder="Cantidad">
+      <button id='pedir' onclick="pedir()">Pedir</button>
+    </div>
   </div>
 </body>
 </html>

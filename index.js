@@ -329,7 +329,7 @@ app.post('/history', checkLogin, (request, response) => {
   });
 });
 
-app.post('/logout', (request, response) => {
+app.get('/logout', (request, response) => {
   request.session.destroy((error) => {
     if (error) {
       return response.redirect('/landing');
