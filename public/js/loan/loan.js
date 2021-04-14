@@ -1,6 +1,7 @@
 async function pedir() {
   let values = {
     ammount: document.getElementById("ammount").value,
+    dAccountId: 10,
     type: 'ask'
   }
   let option = {

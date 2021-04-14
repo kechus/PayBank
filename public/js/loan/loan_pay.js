@@ -1,6 +1,7 @@
 async function pagar() {
   let values = {
     ammount: document.getElementById("ammount").value,
+    dAccountId: 10,
     type: 'payment'
   }
   let option = {

@@ -139,11 +139,11 @@ app.post('/loan', checkLogin, (request, response) => {
   let dAccountId;
 
   if (data.type == 'payment') {
-    oAccountId = request.session.userId
-    dAccountId = 10
+    oAccountId = request.session.userId;
+    dAccountId = data.dAccountId;
   } else {
-    oAccountId = 10
-    dAccountId = request.session.userId
+    oAccountId = data.dAccountId;
+    dAccountId = request.session.userId;
   }
 
   let values = [
@@ -338,4 +338,58 @@ app.get('/logout', (request, response) => {
     response.clearCookie('sid');
     response.redirect("/login/login.html");
   })
+});
+
+app.post('/link', (request, response) => {
+  const databaseHandler = new db();
+  let data = request.body;
+
+  let statement = `SELECT account_id FROM account WHERE username = "${data.username}" AND password = "${data.password}"`;
+
+  databaseHandler.select(statement, (error, rows) => {
+    let state = loginState(error, rows, request);
+    console.log('tried login:' + state.state);
+    if (state.state == 'success')
+      state.id = rows[0].account_id;
+    response.json(state);
+    databaseHandler.endConnection();
+  });
+});
+
+
+app.post('/pay', checkLogin, (request, response) => {
+  let data = request.body;
+  let oAccountId = data.oAccountId;
+  let dAccountId = data.dAccountId;
+
+  let values = [
+    [oAccountId, dAccountId, 'ongoing', 'payment', data.ammount]
+  ]
+
+  async.series([
+      async.apply(insertTransaction, values),
+        async.apply(getBalance, oAccountId, dAccountId)
+    ],
+    (err, results) => {
+      if (results[1].oBalance < data.ammount) {
+        console.log("Insuffcient balance");
+        response.json({
+          state: "failed"
+        })
+      } else {
+        let ammount = parseFloat(data.ammount);
+        let ids = {
+          dId: dAccountId,
+          oId: oAccountId,
+          iId: results[0]
+        }
+        completeTransaction(ids, ammount, results[1]);
+        console.log("Transaction completed");
+        response.json({
+          state: "success"
+        });
+      }
+    });
+
+
 });
