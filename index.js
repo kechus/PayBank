@@ -357,13 +357,13 @@ app.post('/link', (request, response) => {
 });
 
 
-app.post('/pay', checkLogin, (request, response) => {
-  let data = request.body;
-  let oAccountId = data.oAccountId;
-  let dAccountId = data.dAccountId;
+app.get('/', (request, response) => {
+  let oAccountId = request.query.oAccountId;
+  let dAccountId = request.query.dAccountId;
+  let ammount = parseFloat(request.query.ammount);
 
   let values = [
-    [oAccountId, dAccountId, 'ongoing', 'payment', data.ammount]
+    [oAccountId, dAccountId, 'ongoing', 'payment', ammount]
   ]
 
   async.series([
@@ -371,13 +371,12 @@ app.post('/pay', checkLogin, (request, response) => {
         async.apply(getBalance, oAccountId, dAccountId)
     ],
     (err, results) => {
-      if (results[1].oBalance < data.ammount) {
+      if (results[1].oBalance < ammount) {
         console.log("Insuffcient balance");
         response.json({
           state: "failed"
         })
       } else {
-        let ammount = parseFloat(data.ammount);
         let ids = {
           dId: dAccountId,
           oId: oAccountId,
@@ -390,6 +389,4 @@ app.post('/pay', checkLogin, (request, response) => {
         });
       }
     });
-
-
-});
+})
